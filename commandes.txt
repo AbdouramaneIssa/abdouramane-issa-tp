@@ -1,0 +1,14 @@
+docker --version
+docker run hello-world
+mkdir abdouramane-issa-tp
+cd abdouramane-issa-tp
+New-Item Dockerfile
+New-Item app.py
+New-Item requirements.txt
+New-Item commandes.txt
+docker build -t abdouramaneissa-flask-app .
+docker images
+docker run -p 5000:5000 abdouramaneissa-flask-app
+docker login -u ramanraptor
+docker tag abdouramaneissa-flask-app ramanraptor/abdouramaneissa-flask-app
+docker push ramanraptor/abdouramaneissa-flask-app
