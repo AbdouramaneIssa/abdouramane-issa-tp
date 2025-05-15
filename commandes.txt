@@ -1,0 +1,45 @@
+# Vérification de l'installation Docker
+docker --version
+
+# Test de Docker avec hello-world
+docker run hello-world
+
+# Création du répertoire du projet
+mkdir abdouramane-issa-tp
+cd abdouramane-issa-tp
+
+# Création des fichiers nécessaires
+New-Item Dockerfile
+New-Item app.py
+New-Item requirements.txt
+New-Item commandes.txt
+
+# Création des dossiers pour la structure Flask
+mkdir templates
+mkdir static
+mkdir static/css
+
+# Construction de l'image Docker
+docker build -t abdouramane-issa-flask-landing-page .
+
+# Affichage des images Docker disponibles
+docker images
+
+# Exécution du conteneur
+docker run -p 5000:5000 abdouramane-issa-flask-landing-page
+
+# Connexion à Docker Hub
+docker login -u ramanraptor
+
+# Tagging de l'image pour Docker Hub
+docker tag abdouramane-issa-flask-landing-page ramanraptor/abdouramane-issa-flask-landing-page
+
+# Publication de l'image sur Docker Hub
+docker push ramanraptor/abdouramane-issa-flask-landing-page
+
+# Pour arrêter le conteneur en cours d'exécution
+# docker ps
+# docker stop <container_id>
+
+# Pour reconstruire l'image sans cache (en cas de problème)
+# docker build --no-cache -t abdouramane-issa-flask-landing-page .
